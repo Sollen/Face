@@ -9,12 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Emgu.CV;
 using Emgu.CV.Structure;
+using Face.Services;
 
 namespace Face
 {
     public partial class Form1 : Form
     {
-        private static CascadeClassifier _classifier = new CascadeClassifier("haarcascade_frontalface_alt_tree.xml");
+        private FindfaceEmgu serviceEmgu = new FindfaceEmgu();
+        private FindfaceAccord serviceAccord = new FindfaceAccord();
+
         public Form1()
         {
             InitializeComponent();
@@ -30,16 +33,14 @@ namespace Face
                     var path = openFileDialog1.FileName;
                     var img = Image.FromFile(path);
                     pictureBox1.Image = img;
-                    var bitmap = new Bitmap(img);
-                    var grayImage = new Image<Bgr, byte>(bitmap);
-                    var faces = _classifier.DetectMultiScale(grayImage, 1.4, 0);
+                    pictureBox2.Image = img;
 
-                    foreach (var face in faces)
-                        using (var graphics = Graphics.FromImage(bitmap))
-                        using (var pen = new Pen(Color.Yellow, 3))
-                            graphics.DrawRectangle(pen, face);
-
-                    pictureBox1.Image = bitmap;
+                    label1.Text = "EMGU";
+                    label2.Text = "Accord";
+                    var emguResult = serviceEmgu.FindAndDraw(path);
+                    var accordResult = serviceAccord.FindAndDraw(path);
+                    pictureBox1.Image = emguResult;
+                    pictureBox2.Image = accordResult;
                 }
                 else
                 {
