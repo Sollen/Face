@@ -52,6 +52,7 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "JPG|*jpg|PNG|*.png";
             // 
             // pictureBox2
             // 
@@ -79,8 +80,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(12, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 37);
+            this.label1.Size = new System.Drawing.Size(112, 37);
             this.label1.TabIndex = 6;
+            this.label1.Text = "EMGU";
             // 
             // label2
             // 
@@ -88,8 +90,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.Location = new System.Drawing.Point(548, 17);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 37);
+            this.label2.Size = new System.Drawing.Size(118, 37);
             this.label2.TabIndex = 7;
+            this.label2.Text = "Accord";
             // 
             // Form1
             // 
